@@ -120,33 +120,33 @@ class mfcc:
         plt.close()
 
 
-mode_spicy = False
-obj = mfcc(mode_spicy=mode_spicy)
-signal, sr = obj.load_audio('../../data/audio/filter/268_16_ee05cc4e.wav')
-spe = obj.get_spectogram(signal, sr)
-mfcc = obj.get_mfcc(signal if mode_spicy else spe, sr, mode_spicy=False)
-d1 = obj.get_delta_mfcc(mfcc, 1)
-d2 = obj.get_delta_mfcc(mfcc, 2)
-
-cont_all = np.concatenate((mfcc, d1, d2), axis=0 if mode_spicy else 1)
-normsv = obj.normalize_cmvn(cont_all)
-normwv = obj.normalize_cmvnw(cont_all, sr)
-
-obj.plot_signal(spe)
-obj.show_spectogram(spe, sr)
-obj.plot_signal(mfcc)
-
-obj.show_signal(mfcc, sr)
-obj.plot_signal(d1)
-obj.show_signal(d1, sr)
-obj.plot_signal(d2)
-obj.show_signal(d2, sr)
-
-obj.plot_signal(cont_all)
-obj.show_signal(cont_all, sr)
-obj.plot_signal(normsv)
-obj.show_signal(normsv, sr)
-obj.plot_signal(normwv)
-obj.show_signal(normwv, sr)
-
-print(cont_all.shape)
+# mode_spicy = False
+# obj = mfcc(mode_spicy=mode_spicy)
+# signal, sr = obj.load_audio('../../data/audio/filter/268_16_ee05cc4e.wav')
+# spe = obj.get_spectogram(signal, sr)
+# mfcc = obj.get_mfcc(signal if mode_spicy else spe, sr, mode_spicy=False)
+# d1 = obj.get_delta_mfcc(mfcc, 1)
+# d2 = obj.get_delta_mfcc(mfcc, 2)
+#
+# cont_all = np.concatenate((mfcc, d1, d2), axis=0 if mode_spicy else 1)
+# normsv = obj.normalize_cmvn(cont_all)
+# normwv = obj.normalize_cmvnw(cont_all, sr)
+#
+# obj.plot_signal(spe)
+# obj.show_spectogram(spe, sr)
+# obj.plot_signal(mfcc)
+#
+# obj.show_signal(mfcc, sr)
+# obj.plot_signal(d1)
+# obj.show_signal(d1, sr)
+# obj.plot_signal(d2)
+# obj.show_signal(d2, sr)
+#
+# obj.plot_signal(cont_all)
+# obj.show_signal(cont_all, sr)
+# obj.plot_signal(normsv)
+# obj.show_signal(normsv, sr)
+# obj.plot_signal(normwv)
+# obj.show_signal(normwv, sr)
+#
+# print(cont_all.shape)
